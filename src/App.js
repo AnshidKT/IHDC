@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./compnents/style.css";
+import Login from "./compnents/Login";
+import Index from "./compnents/Index";
+import Home from "./compnents/Home";
+import Admin from "./compnents/Admin";
+import Membership from "./compnents/Membership";
+import Advocate from "./compnents/Advocate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<Index />}>
+       
+        <Route path="Home" element={<Home />} />
+        <Route path="Admin" element={<Admin />} />
+        <Route path="Membership" element={<Membership />} />
+        <Route path="Advocate" element={<Advocate />} />
+        </Route> 
+        <Route path="Login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
